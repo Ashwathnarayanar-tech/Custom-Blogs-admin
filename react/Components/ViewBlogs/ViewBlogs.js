@@ -24,7 +24,8 @@ const ViewBlogs = (props) => {
             console.log(`DataFetchResponse : `, responseData);
             responseData && setSpinner(false);
             setData(responseData);
-        };        
+        };    
+        getDataAPICall();
         setShowUpdateForm(false);
         setLoading(false);
     }
