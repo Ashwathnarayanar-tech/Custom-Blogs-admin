@@ -1,0 +1,46 @@
+.card{   
+    box-sizing: border-box;
+    color: rgb(31, 30, 30);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+    border-radius: 5px;
+    padding: 7px;
+    padding-left: 20px;
+    margin:8px 0 ;
+   
+}
+
+.cardContainer{
+    margin-top: 20px;
+    display: flex;
+    flex-flow: column;
+    text-align: left;
+    align-items: left;
+    justify-content: flex-start;
+   
+}
+
+
+.editDoc{
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+  justify-content:flex-end;
+  
+}
+
+
+.btnUpdate{
+margin-right: 10px;
+}
+
+.btnDelete{
+    margin-left: 10px;
+
+}
+
+.loadingSpinner{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin:20px ;
+}

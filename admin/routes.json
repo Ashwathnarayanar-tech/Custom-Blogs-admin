@@ -1,0 +1,6 @@
+{
+  "admin.app.customblog": {
+    "component": "CustomBlogWrapper",
+    "path": "/admin/app/customblog"
+  }
+}

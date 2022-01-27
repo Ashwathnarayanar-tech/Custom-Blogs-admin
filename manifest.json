@@ -1,0 +1,21 @@
+{
+  "vendor": "echidna",
+  "name": "custom-blogs",
+  "version": "0.0.0",
+  "title": "custom-blogs",
+  "description": "An admin interface to create,update or delete Custom Blogs",
+  "builders": {
+    "react": "3.x",
+    "messages": "1.x",
+    "docs": "0.x",
+    "admin": "0.x"
+  },
+  "dependencies": {
+    "vtex.styleguide": "9.x"
+  },
+  "registries": [
+    "smartcheckout"
+  ],
+  "policies": [],
+  "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
+}
