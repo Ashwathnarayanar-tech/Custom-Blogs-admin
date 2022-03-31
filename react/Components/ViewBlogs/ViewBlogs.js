@@ -85,7 +85,8 @@ const ViewBlogs = (props) => {
             image3: `${docArr[0].image3}`,
             documentLink: `${docArr[0].documentLink}`,
             createdIn:`${docArr[0].createdIn}`,
-            category:`${docArr[0].category}`,
+            category: `${docArr[0].category}`,
+            categoryId:`${docArr[0].categoryId}`,
         }
         
         setFormValue(initialBlogData);        
@@ -105,6 +106,8 @@ const ViewBlogs = (props) => {
     </div>
     <div style={{ height: "30px" }}></div>
     <Input name="category" value={formValue.category} required={true} placeholder="Category" label="Category" onChange={(e) => handleChange(e)} />            
+        <div style={{ height: "30px" }}></div>
+        <Input name="categoryId" value={formValue.categoryId} required={true} placeholder="Category Id" label="Category Id" onChange={(e) => handleChange(e)} />            
     <div style={{ height: "30px" }}></div>
     <div>
     <Input name="author" value={formValue.author} required={true} placeholder="Author" label="Author" onChange={ (e)=>handleChange(e)}/>   
@@ -184,6 +187,7 @@ const ViewBlogs = (props) => {
                 </div>
                 <div><p><strong> DisplayName :</strong> {doc.displayName}</p></div>
                 <div><p><strong> Category :</strong> {doc.category}</p></div>
+                <div><p><strong> Category Id :</strong> {doc.categoryId}</p></div>
                 <div><p><strong> Short Description :</strong> {doc.shortDescription}</p></div>
                 <div><p><strong> Long Description :</strong> {doc.longDescription}</p></div>
                 <div><p><strong> Author :</strong> {doc.author}</p></div>
@@ -232,9 +236,13 @@ const ViewBlogs = (props) => {
 
     const categories = [
         { value: "All", label: "All" },
-        { value: "LIFESTYLE", label: "LIFESTYLE" },
-        { value: "TECHNOLOGY", label: "TECHNOLOGY" },
-        { value: "ELECTRIC", label: "ELECTRIC" }
+        { value: "Electronics", label: "Electronics" },
+        { value: "Merchandise", label: "Merchandise" },
+        { value: "Nismo", label: "Nismo" },
+        { value: "Car-Parts", label: "Car-Parts" },
+        { value: "Major-Appliances", label: "Major-Appliances" },
+        { value: "Small-Appliances", label: "Small-Appliances" }     
+
     ];
 
 const filterCatDropdown= data && categories && <Dropdown
@@ -265,7 +273,8 @@ console.log(filterByCat);
               
             </div>
             <div><p><strong> DisplayName :</strong> {doc.displayName}</p></div>
-            <div><p><strong> Category :</strong> {doc.category }</p></div>
+            <div><p><strong> Category :</strong> {doc.category}</p></div>
+            <div><p><strong> Category Id :</strong> {doc.categoryId}</p></div>
             <div><p><strong> Short Description :</strong> {doc.shortDescription}</p></div>
             <div><p><strong> Long Description :</strong> {doc.longDescription}</p></div>
             <div><p><strong> Author :</strong> {doc.author}</p></div>
@@ -297,7 +306,8 @@ console.log(filterByCat);
                 </Button></div>            
              </div>
              <div><p><strong> DisplayName :</strong> {doc.displayName}</p></div>
-             <div><p><strong> Category :</strong> {doc.category }</p></div>
+             <div><p><strong> Category :</strong> {doc.category}</p></div>
+             <div><p><strong> Category Id :</strong> {doc.categoryId}</p></div>
              <div><p><strong> Short Description :</strong> {doc.shortDescription}</p></div>
              <div><p><strong> Long Description :</strong> {doc.longDescription}</p></div>
              <div><p><strong> Author :</strong> {doc.author}</p></div>

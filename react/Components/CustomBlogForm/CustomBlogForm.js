@@ -19,13 +19,15 @@ const CustomBlogForm = (props) => {
         image2: "",
         image3: "",
         documentLink: "",
-        category:"",
+        category: "",
+        categoryId:"",
     }
     const [inputChange, setinputChange] = useState(initialValue);
     const [errormsg, setErrormsg] = useState({
         displayName: "",
         author: "",
         category: "",
+        categoryId:"",
         shortDescription: "",
        
     });
@@ -33,6 +35,7 @@ const CustomBlogForm = (props) => {
         displayName: false,
         author: false,
         category: false,
+        categoryId:false,
         shortDescription: false,
        
     });
@@ -40,7 +43,7 @@ const CustomBlogForm = (props) => {
     
 
     useEffect(() => {    
-    
+    //or API fetch data
     }, [
         setErrormsg, handleSubmit
     ]);
@@ -65,7 +68,8 @@ const CustomBlogForm = (props) => {
     const validate = (data, name) => {
         (name=='displayName')&&data.displayName.length < 1 ? setErrormsg((errormsg) => ({ ...errormsg, displayName: "Required field" })): data.displayName.length > 50? setErrormsg((errormsg) => ({ ...errormsg, displayName: "Length exceeded." })) :setErrormsg((errormsg) => ({ ...errormsg, displayName: "" }));
         (name == 'author')&&data.author.length < 1 ? setErrormsg((errormsg) => ({ ...errormsg, author: "Required field" })) : setErrormsg((errormsg) => ({ ...errormsg, author: "" }));
-        (name=='category')&&data.category.length < 1 ? setErrormsg((errormsg) => ({ ...errormsg, category: "Required field" })) : setErrormsg((errormsg) => ({ ...errormsg, category: "" }));        
+        (name == 'category') && data.category.length < 1 ? setErrormsg((errormsg) => ({ ...errormsg, category: "Required field" })) : setErrormsg((errormsg) => ({ ...errormsg, category: "" }));
+        (name=='categoryId')&& data.categoryId.length < 1 ? setErrormsg((errormsg) => ({ ...errormsg, categoryId: "Required field" })) : setErrormsg((errormsg) => ({ ...errormsg, categoryid: "" }));        
         (name=='shortDescription')&&data.shortDescription.length < 1 ? setErrormsg((errormsg) => ({ ...errormsg, shortDescription: "Required field" })) : data.shortDescription.length > 100 ? setErrormsg((errormsg) => ({ ...errormsg, shortDescription: "Length exceeded." })) : setErrormsg((errormsg) => ({ ...errormsg, shortDescription: "" }));
         
       
@@ -86,13 +90,15 @@ const CustomBlogForm = (props) => {
         let validationSuccess = ((visited.displayName && errormsg.displayName == "") &&
             (visited.author && errormsg.author == "") &&
             (visited.category && errormsg.category == "") &&
+            (visited.categoryId && errormsg.categoryId == "")&&
             (visited.shortDescription && errormsg.shortDescription == ""));
         
         console.log("validation", validationSuccess);
         
         inputChange.displayName.length < 1 ? setErrormsg((errormsg) => ({ ...errormsg, displayName: "Required field" })): inputChange.displayName.length > 50? setErrormsg((errormsg) => ({ ...errormsg, displayName: "Length exceeded." })) :setErrormsg((errormsg) => ({ ...errormsg, displayName: "" }));
         inputChange.author.length < 1 ? setErrormsg((errormsg) => ({ ...errormsg, author: "Required field" })) : setErrormsg((errormsg) => ({ ...errormsg, author: "" }));
-        inputChange.category.length < 1 ? setErrormsg((errormsg) => ({ ...errormsg, category: "Required field" })) : setErrormsg((errormsg) => ({ ...errormsg, category: "" }));       
+        inputChange.category.length < 1 ? setErrormsg((errormsg) => ({ ...errormsg, category: "Required field" })) : setErrormsg((errormsg) => ({ ...errormsg, category: "" }));
+        inputChange.categoryId.length < 1 ? setErrormsg((errormsg) => ({ ...errormsg, categoryId: "Required field" })) : setErrormsg((errormsg) => ({ ...errormsg, categoryid: "" }));       
         inputChange.shortDescription.length < 1 ? setErrormsg((errormsg) => ({ ...errormsg, shortDescription: "Required field" })) : inputChange.shortDescription.length > 100 ? setErrormsg((errormsg) => ({ ...errormsg, shortDescription: "Length exceeded." })) : setErrormsg((errormsg) => ({ ...errormsg, shortDescription: "" }));
         
 
@@ -106,6 +112,7 @@ const CustomBlogForm = (props) => {
             displayName: "",
             author: "",
             category: "",
+            categoryId:"",
             shortDescription: "",
            
         });
@@ -132,6 +139,15 @@ const CustomBlogForm = (props) => {
             errorMessage={errormsg.category}
         />            
         <div style={{ height: "24px" }}></div>
+        <Input name="categoryId"
+            value={inputChange.categoryId}
+            required={true} placeholder="Category Id"
+            label="Category Id" onChange={(e) => handleChange(e)}
+            errorMessage={errormsg.categoryId}
+        />            
+        <div style={{ height: "24px" }}></div>
+
+
         <div>
             <Input name="author"
                 value={inputChange.author}

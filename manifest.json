@@ -1,7 +1,7 @@
 {
   "vendor": "echidna",
   "name": "custom-blogs",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "title": "custom-blogs",
   "description": "An admin interface to create,update or delete Custom Blogs",
   "builders": {
